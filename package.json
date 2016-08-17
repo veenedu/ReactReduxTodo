@@ -15,7 +15,8 @@
     "fb_start": "react-scripts start",
     "fb_build": "react-scripts build",
     "fb_eject____": "react-scripts eject",
-    "start": "NODE_ENV=production node index.js"
+    "start": "NODE_ENV=production node index.js",
+    "heroku-postbuild": "react-scripts build"
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"
