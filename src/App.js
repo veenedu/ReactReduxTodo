@@ -12,7 +12,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <TodoForm />
-          <TodoList tasks = {[{id:1,title:'MyTask'}]} />
+          <TodoList />
         </div>
       </Provider>
     );

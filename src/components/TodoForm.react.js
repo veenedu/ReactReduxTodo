@@ -1,23 +1,34 @@
 import React, {PropTypes} from 'react';
+import {addTask} from '../redux/actions/task-actions';
+import {connect} from 'react-redux';
 
-export default class TodoForm extends React.Component {
+
+class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.handleAddTask = this.handleAddTask.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-  handleAddTask(){
+  handleFormSubmit(e){
+    e.preventDefault();
     var task = this.refs.task.value;
+    this.props.addTask({
+      title:task,
+      id:new Date().getTime()
+    });
+    this.refs.task.value = ''
   }
 
   render() {
-    return (<div>
-              <input type='text' ref='task' />
-              <button onClick={this.handleAddTask}>Add Task</button>
-            </div>);
+    return (<form onSubmit={this.handleFormSubmit}>
+              <input placeholder='Add your todo' type='text' ref='task' />
+              <input type="submit" value="add Task" />
+            </form>);
   }
 }
 
 TodoForm.propTypes = {
-  handleAddTask: PropTypes.func.isRequired
+  addTask: PropTypes.func.isRequired
 };
+
+export default connect(null, {addTask})(TodoForm);
