@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm.react'
 import TodoList from './components/TodoList.react'
+import store from './redux/store';
 
 class App extends Component {
   render() {
